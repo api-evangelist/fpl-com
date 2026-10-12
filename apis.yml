@@ -1,17 +1,22 @@
 aid: fpl-com
 name: Florida Power & Light
-description: 'Florida Power & Light is a company surfaced via the API Evangelist harvest backlog (source:
-  energy-gap) and added to the network as a stub for full-pipeline profiling.'
+description: Florida Power & Light (FPL) is the largest electric utility in Florida and a subsidiary of NextEra
+  Energy. As of 2026-10-13 it publishes no public API, developer portal, or Green Button Connect My Data program;
+  customer usage data is available only inside the myFPL account dashboard.
 url: https://raw.githubusercontent.com/api-evangelist/fpl-com/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:energy-gap
-x-tier: stub
-x-tier-reason: harvest
+x-tier: profiled
+x-tier-reason: no-public-api
 specificationVersion: '0.20'
 created: '2026-10-13'
 modified: '2026-10-13'
 tags:
 - Company
+- Electric Utility
+- Energy
+- Florida
+- Utilities
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +24,26 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/fpl-com-domain-security.yml
 - type: Website
   url: https://www.fpl.com
+- type: PrivacyPolicy
+  url: https://www.fpl.com/support/contact/using-fpl-com/view-privacy-policy.html
+- type: TermsOfService
+  url: https://www.fpl.com/account/bill/pay-online-terms.html
+- type: Portal
+  name: FPL Partner Portal (login-gated)
+  url: https://partner.fpl.com/
+x-parent-company: nextera-energy
+x-coverage:
+  generated: '2026-10-13'
+  method: probed
+  verdict: no-public-api
+  finding: No API, developer portal, OpenAPI/AsyncAPI/GraphQL/MCP surface, or Green Button (Connect My Data or Download
+    My Data) program found. api.fpl.com does not resolve; partner.fpl.com is a login-gated partner portal with no
+    published interface; sitemap (www.fpl.com/sitemap.xml) lists no developer, data-access, or Green Button pages.
+  evidence:
+  - https://www.fpl.com/sitemap.xml
+  - https://partner.fpl.com/
+  - https://nectarclimate.com/utilities/florida-power-light-co
